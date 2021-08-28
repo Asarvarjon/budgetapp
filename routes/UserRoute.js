@@ -91,6 +91,8 @@ router.post("/", async(req, res) => {
      } else (
          res.redirect("/")
      )
+
+     return
  }
 
  router.get("/profile", AuthUserMiddleware, (req, res) => {
