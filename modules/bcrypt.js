@@ -8,5 +8,5 @@ module.exports.createCrypt = async function createCrypt(word) {
 
 
 module.exports.compareCrypt = async function compareCrypt(crypt, word) {
-    await bcrypt.compare(word, crypt)
+    return await bcrypt.compare(word, crypt)
 }

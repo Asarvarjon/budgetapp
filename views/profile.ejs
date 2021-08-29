@@ -1,0 +1,143 @@
+<%- include("./parts/header.ejs") %>
+<% var data = data || [] %>
+<% var expense = expense || [] %> 
+<% var total %>   
+<section>
+    <div class="container mt-2">
+        <h2 class="text-center text-danger">Welcome!</h2>
+
+        <div class="row mt-4">
+            <div class="col-lg-4 p-2">
+                <h3 class="text-success text-center">
+                    Income
+                </h3>
+                <form method="POST" action="/income" class="w-100 mt-4" autocomplete="off">
+                    <input type="number" name="money" class="form-control mt-4" placeholder="Amount of money..."
+                        required>
+
+                    <input name="select" class="form-control mt-4" placeholder="Enter the source" required>
+
+                    <button class="btn btn-large w-100 mt-4 btn-outline-primary" type="submit">
+                        Add
+                    </button>
+
+                </form>
+
+                <div class="mt-4">
+                    <h4 class="text-center text-warning">
+                        Your income history
+                    </h4>
+                    <table class="table table-bordered text-light mt-2">
+                        <thead>
+                            <tr>
+                                <th class="text-primary">
+                                    Id
+                                </th>
+                                <th>
+                                    Source
+                                </th>
+                                <th>
+                                    Amount
+                                </th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody> 
+                                <% data.forEach(element => { %>
+                                    <tr>
+                                        <td class="text-primary">
+                                            <%=  data.indexOf(element) + 1 %>
+                                        </td>
+                                        <td class="text-light">
+                                            <%=  element["source"] %>
+                                        </td>
+                                        <td class="text-light">
+                                            <%= element["money"] %> so'm
+                                        </td>
+                                    </tr>
+                                <% }) %> 
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-4 p-2">
+                <h2 class="text-info text-center">
+                    Total money
+                </h2> 
+                <% if(total) { %>
+                    <p class="fs-3 text-light text-center">
+                        <%= total %> so'm
+                    </p>
+                <% } else { %>  
+                    <p class="fs-3 text-light text-center">
+                        0 so'm 
+                    </p>
+                <% } %> 
+
+            </div>
+            <div class="col-lg-4 p-2">
+                <h3 class="text-danger text-center">
+                    Outcome
+                </h3>
+
+                <form method="POST" action="/outcome" class="w-100 mt-4" autocomplete="off">
+                    <input type="number" name="spendMoney" class="form-control mt-4" placeholder="Amount of money..."
+                        required>
+
+                    <input name="spendType" class="form-control mt-4" placeholder="Enter the type of expense"> 
+
+                    <button class="btn btn-large w-100 mt-4 btn-danger" type="submit">
+                        Spend
+                    </button>
+
+                </form>
+
+                <h4 class="text-center text-warning mt-4">
+                    Your outcome history
+                </h4>
+                <table class="table table-bordered text-light mt-2">
+                    <thead>
+                        <tr>
+                            <th class="text-primary">
+                                Id
+                            </th>
+                            <th>
+                                Source
+                            </th>
+                            <th>
+                                Amount
+                            </th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody>
+ 
+                            <% expense.forEach(element => { %>
+                                <tr>
+                                    <td class="text-primary">
+                                        <%=  expense.indexOf(element) + 1 %>
+                                    </td>
+                                    <td class="text-light">
+                                        <%=  element["source"] %>
+                                    </td>
+                                    <td class="text-light">
+                                        <%= element["money"] %> so'm
+                                    </td>
+                                </tr>
+                            <% }) %>  
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<%- include("./parts/footer.ejs") %>
