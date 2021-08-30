@@ -1,4 +1,4 @@
-const { MongoClient } = require("mongodb")
+const { MongoClient } = require("mongodb");
 
  const AtlasUrl = 'mongodb+srv://mongo:mongo@cluster0.uvl2x.mongodb.net/usersystem?retryWrites=true&w=majority'
 
@@ -20,7 +20,7 @@ const { MongoClient } = require("mongodb")
      } catch (error) {
          console.log(error);
      }
- }
+ };
 
 
  module.exports = mongo;
