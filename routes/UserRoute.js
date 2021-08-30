@@ -130,6 +130,8 @@ router.post("/", async(req, res) => {
         data,
         expense,
         total,
+        outcomeTotal,
+        incomeTotal,
     })
 
     return

@@ -2,6 +2,8 @@
 <% var data = data || [] %>
 <% var expense = expense || [] %> 
 <% var total %>   
+<% var incomeTotal %> 
+<% var outcomeTotal %> 
 <section>
     <div class="container mt-2"> 
             <h2 class="text-danger text-center">Welcome!</h2> 
@@ -31,6 +33,22 @@
                 </form>
 
                 <div class="mt-4">
+
+                    <div class="my-4">
+                        <h4 class="text-center ">
+                            Total income
+                        </h4>
+                        <% if(incomeTotal) { %>
+                            <p class="fs-3 text-light text-center">
+                                <%= incomeTotal %> so'm
+                            </p>
+                        <% } else { %>  
+                            <p class="fs-3 text-light text-center">
+                                0 so'm 
+                            </p>
+                        <% } %> 
+
+                    </div>
                     <h4 class="text-center text-warning">
                         Your income history
                     </h4>
@@ -93,13 +111,29 @@
                     <input type="number" name="spendMoney" class="form-control mt-4" placeholder="Amount of money..."
                         required>
 
-                    <input name="spendType" class="form-control mt-4" placeholder="Enter the type of expense"> 
+                    <input name="spendType" class="form-control mt-4" placeholder="Enter the type of expense" required> 
 
                     <button class="btn btn-large w-100 mt-4 btn-danger" type="submit">
                         Spend
                     </button>
 
                 </form>
+
+                <div class="my-4">
+                    <h4 class="text-center">
+                        Total outcome
+                    </h4>
+                    <% if(outcomeTotal) { %>
+                        <p class="fs-3 text-light text-center  ">
+                            <%= outcomeTotal %> so'm
+                        </p>
+                    <% } else { %>  
+                        <p class="fs-3 text-light text-center">
+                            0 so'm 
+                        </p>
+                    <% } %> 
+
+                </div>
 
                 <h4 class="text-center text-warning mt-4">
                     Your outcome history
