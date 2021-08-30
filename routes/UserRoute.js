@@ -169,6 +169,16 @@ router.post("/", async(req, res) => {
  } )
 
 
+ router.get("/logout", AuthUserMiddleware, async (req, res) => {
+    const { user_id } = req.user  
+    await req.db.users.deleteOne({
+        _id: ObjectId(user_id)
+    }) 
+
+    res.redirect("/")
+ })
+
+
 
 module.exports = {
     router,

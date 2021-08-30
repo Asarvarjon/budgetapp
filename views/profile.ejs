@@ -3,8 +3,15 @@
 <% var expense = expense || [] %> 
 <% var total %>   
 <section>
-    <div class="container mt-2">
-        <h2 class="text-center text-danger">Welcome!</h2>
+    <div class="container mt-2"> 
+            <h2 class="text-danger text-center">Welcome!</h2> 
+        
+           <div class="d-flex justify-content-end">
+            <a href="/logout" class="btn btn-large btn-danger">
+                Log out
+            </a>
+           </div>
+
 
         <div class="row mt-4">
             <div class="col-lg-4 p-2">
