@@ -1,8 +1,8 @@
 const { MongoClient } = require("mongodb")
 
- const mongoAtlasUrl = 'mongodb+srv://mongo:mongo@cluster0.uvl2x.mongodb.net/usersystem?retryWrites=true&w=majority'
+ const AtlasUrl = 'mongodb+srv://mongo:mongo@cluster0.uvl2x.mongodb.net/usersystem?retryWrites=true&w=majority'
 
- const client = new MongoClient(mongoAtlasUrl);
+ const client = new MongoClient(AtlasUrl);
 
 
 
